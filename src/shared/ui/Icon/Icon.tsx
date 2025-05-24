@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { FC } from 'react';
 
 interface Props {
   name: string;
@@ -7,7 +7,6 @@ interface Props {
 }
 
 export const Icon: FC<Props> = ({
-  name,
   size = { width: 24, height: 24 },
   className = '',
 }) => {
@@ -19,8 +18,6 @@ export const Icon: FC<Props> = ({
         height: size.height,
       }}
       className={className}
-    >
-      <use xlinkHref={`/public/assets/images/vector/sprites.svg#${name}`}></use>
-    </svg>
+    ></svg>
   );
 };
