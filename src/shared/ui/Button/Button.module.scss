@@ -3,9 +3,9 @@
   cursor: pointer;
   box-sizing: border-box;
   border-radius: 8px;
-  height: 56px;
   padding: 16px 0;
   transition: var(--button-transition);
+  text-align: center;
 
   &_bold {
     letter-spacing: -0.25px;
@@ -30,5 +30,9 @@
     transform: scale(0.95);
     filter: brightness(var(--button-brightness-active));
     box-shadow: 0 0 24px rgba(var(--color-dark), var(--opacity-6));
+  }
+
+  &:hover{
+    filter: brightness(var(--button-brightness-active));
   }
 }

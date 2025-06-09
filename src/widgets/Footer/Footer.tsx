@@ -1,18 +1,27 @@
 import { FC } from 'react';
 import styles from './Footer.module.scss';
 import { contacts } from './constants/contacts.ts';
-import { CopyableText } from '../../shared/ui/CopyableText/CopyableText.tsx';
 import { ContactInfo } from './components/ContactInfo/ContactInfo.tsx';
+import { useBreakpoint } from '../../shared/context/BreakpointContext.tsx';
 
 export const Footer: FC = () => {
+  const breakpoint = useBreakpoint();
   return (
-    <footer className={styles.footer}>
-      <ul className={styles.contactList}>
+    <footer
+      className={styles.footer}
+      style={{
+        padding: breakpoint === 'mobile' ? '24px 0' : '',
+      }}
+    >
+      <ul
+        className={styles.contactList}
+        style={{
+          flexDirection: breakpoint === 'mobile' ? 'column' : 'row',
+        }}
+      >
         {contacts.map((contact) => (
           <li key={contact.title} className={styles.contactList__item}>
-            <CopyableText text={contact.toCopy}>
-              <ContactInfo title={contact.title} icon={contact.icon} />
-            </CopyableText>
+            <ContactInfo title={contact.title} icon={contact.icon} />
           </li>
         ))}
       </ul>
